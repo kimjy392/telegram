@@ -37,7 +37,6 @@ def telegram():
         # 2. URL 설정
         naver_url = 'https://openapi.naver.com/v1/vision/celebrity'
         # 3. 요청보내기! POST
-
         response = requests.post(naver_url, headers=headers, files={'image' : img}).json()
         best = response.get('faces')[-1].get('celebrity')
 
@@ -75,22 +74,5 @@ def telegram():
         requests.get(api_url) # 메시지 전송
     return 'Ok', 200 # 200 정상적인 코드를 받았다는 의미
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
